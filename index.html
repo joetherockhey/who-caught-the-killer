@@ -150,11 +150,107 @@
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false">Take 1</button>
     <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false">Take 2</button>
-    <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="true">Take 3 <span class="badge">NEW</span></button>
+    <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false">Take 3</button>
+    <button class="tab" role="tab" id="t4" aria-controls="p4" aria-selected="true">Take 4 <span class="badge">NEW</span></button>
   </div>
 
+  <!-- ======================= TAKE 4 ======================= -->
+  <section class="panel" id="p4" role="tabpanel" aria-labelledby="t4">
+    <div class="stage">
+      <video controls playsinline preload="metadata" poster="poster4.jpg">
+        <source src="s1e01-take4.mp4" type="video/mp4">
+        Your browser can't play this video.
+      </video>
+    </div>
+    <div class="meta">
+      <span class="chip">91s</span>
+      <span class="chip">26 lines</span>
+      <span class="chip">20 stills</span>
+      <span class="chip">Kokoro voice</span>
+      <span class="chip">Free to make</span>
+    </div>
+
+    <section class="score">
+      <h2>The verdict &mdash; episode 1</h2>
+      <div class="row">
+        <div class="pct l">80%<span class="nm">Patrick Jane</span></div>
+        <div class="pct r" style="text-align:right">20%<span class="nm">The detectives</span></div>
+      </div>
+      <div class="bar"><i class="a"></i><i class="b"></i></div>
+    </section>
+
+    <div class="notes">
+
+      <h3>It finally says what it is</h3>
+      <p>Take 3 said &ldquo;I'm scoring every episode&rdquo; and never said scoring
+        <em>what</em>. The bar was labelled on screen, but a viewer listening rather
+        than reading got nothing &mdash; and &ldquo;scoring&rdquo; without a metric
+        sounds like a review score out of ten.</p>
+
+      <p>The opening now states the premise in the channel owner's own words:
+        a rewatch, Jane as <strong>a reformed fake psychic turned California Bureau
+        of Investigation consultant</strong>, the observation that he seems to do far
+        more of the legwork than the detectives, and the question the whole series
+        asks &mdash; <strong>how much of the credit for catching the killer belongs
+        to Jane, and how much to them</strong>.</p>
+
+      <p>It costs 27 seconds before the shooting, against 10 in Take 3. That is the
+        trade, made deliberately: the video is now comprehensible to someone who has
+        never seen the show, which it demonstrably was not before.</p>
+
+      <h3>Four images that didn't exist</h3>
+      <p>The biggest weakness in every previous take was that the stills were made
+        for an older script, so the pictures and the words often described different
+        scenes. Four purpose-made images fix the worst of it.</p>
+
+      <div class="split">
+        <div class="card"><b>The shooting</b><span>Take 3 opened on
+          &ldquo;a man is shot dead&rdquo; over an empty interrogation room. It now
+          shows the shooting &mdash; the cream suit, the collapse, the teacup breaking
+          mid-air, the muzzle flash.</span></div>
+        <div class="card"><b>The wife</b><span>No previous version had a woman on
+          screen anywhere, in a story where one fires the gun and another is murdered
+          as cover.</span></div>
+        <div class="card"><b>The planted hair</b><span>The turn of the whole video was
+          a repeated frame with a stamp on it. It is now a gloved hand and a pair of
+          tweezers.</span></div>
+        <div class="card"><b>The motive</b><span>The ledger, the cash, the photograph
+          face down &mdash; replacing a closed manila folder.</span></div>
+      </div>
+
+      <p>Wide images are <strong>mounted whole rather than cropped</strong>. The first
+        attempt cropped the shooting to a square and lost Jane on one edge and the
+        muzzle flash on the other &mdash; the two things that made it the shooting.</p>
+
+      <h3>The voice is now free, forever</h3>
+      <p>Take 3's narration was a paid API at 0.3 credits a line. Fine for one video;
+        about <strong>180 credits for a season</strong>. Take 4 uses
+        <strong>Kokoro-82M running locally on the CPU</strong> &mdash; no account, no
+        key, no quota, nothing to run out of, and re-cutting a line costs time instead
+        of money.</p>
+
+      <p>It also sounds less rushed. The generated clips carry about a second of
+        padding each; stripping that recovered <strong>23 seconds</strong> across the
+        episode, which bought a 0.65-second breath between lines instead of the
+        0.1 seconds the paid voice had been squeezed into.</p>
+
+      <h3>Still to do</h3>
+      <ul class="list">
+        <li><b>One image is still missing.</b> &ldquo;Wrong wall&rdquo; &mdash; the
+          beat where Jane spots that the killer painted the smiley in the wrong place
+          &mdash; returns to the crime-scene still instead of showing the mistake.</li>
+        <li><b>The ledger has a red smiley on it.</b> In this video a red smiley is the
+          killer's signature, so it implies Red John was behind the embezzlement. He
+          wasn't. It sits on the subject, so it can't be cropped out.</li>
+        <li><b>The 27-second intro is unproven.</b> It fixes comprehension; whether it
+          costs more viewers than it keeps is a question only the retention graph
+          answers.</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ======================= TAKE 3 ======================= -->
-  <section class="panel" id="p3" role="tabpanel" aria-labelledby="t3">
+  <section class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
     <div class="stage">
       <video controls playsinline preload="metadata" poster="poster3.jpg">
         <source src="s1e01-take3.mp4" type="video/mp4">
