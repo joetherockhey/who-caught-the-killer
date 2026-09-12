@@ -13,12 +13,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#14120F; --bg2:#1C1A16; --panel:#221F1A;
+    --bg:#14120F; --panel:#221F1A; --panel2:#2A2620;
     --sand:#cabd93; --steel:#7a9eb2; --teal:#78d0d4;
     --ink:#9a9086; --white:#F5F0E6;
-    --news:#E8DCC3; --manila:#D6B77E;
-    --red:#D62828; --stamp:#8E2436; --yellow:#F2C230;
-    --ok:#6fbf8a;
+    --news:#E8DCC3; --red:#D62828; --yellow:#F2C230; --ok:#6fbf8a;
   }
   *{box-sizing:border-box}
   body{
@@ -27,16 +25,15 @@
     background-image:radial-gradient(120% 60% at 50% 0%, #262019 0%, transparent 60%);
     min-height:100vh;
   }
-  .wrap{max-width:1080px; margin:0 auto; padding:48px 20px 80px}
+  .wrap{max-width:1080px; margin:0 auto; padding-block:48px 80px; padding-left:20px; padding-right:20px}
   header{text-align:center; margin-bottom:34px}
   .kicker{
     color:var(--yellow); font-family:"Courier Prime",monospace; font-size:13px;
     font-weight:700; letter-spacing:.28em; text-transform:uppercase; margin:0 0 14px;
   }
-  h1{font-size:clamp(30px,6vw,52px); line-height:1.08; margin:0 0 14px; letter-spacing:-.02em}
+  h1{font-size:clamp(30px,6vw,52px); line-height:1.08; margin:0 0 14px; letter-spacing:-.02em; text-wrap:balance}
   .sub{color:var(--ink); font-size:clamp(15px,2.4vw,18px); margin:0 auto; max-width:56ch; line-height:1.6}
 
-  /* ---- tabs ---- */
   .tabs{display:flex; gap:8px; justify-content:center; margin:32px 0 8px; flex-wrap:wrap}
   .tab{
     appearance:none; cursor:pointer; font-family:"Courier Prime",monospace;
@@ -45,13 +42,9 @@
     padding:13px 22px; border-radius:8px 8px 0 0; transition:.15s;
   }
   .tab:hover{color:var(--white)}
-  .tab[aria-selected="true"]{
-    color:var(--bg); background:var(--news); border-color:var(--news);
-  }
-  .tab .badge{
-    display:inline-block; margin-left:8px; padding:2px 7px; border-radius:4px;
-    font-size:10px; background:#00000026;
-  }
+  .tab[aria-selected="true"]{color:var(--bg); background:var(--news); border-color:var(--news)}
+  .tab:focus-visible{outline:3px solid var(--yellow); outline-offset:2px}
+  .tab .badge{display:inline-block; margin-left:8px; padding:2px 7px; border-radius:4px; font-size:10px; background:#00000026}
   .panel[hidden]{display:none}
   .panel{border-top:1px solid #ffffff14; padding-top:30px}
 
@@ -60,7 +53,6 @@
     width:min(400px,92vw); aspect-ratio:9/16; background:#000; border-radius:16px;
     box-shadow:0 30px 90px #000a, 0 0 0 1px #ffffff14; display:block;
   }
-
   .meta{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:30px}
   .chip{
     font-family:"Courier Prime",monospace; font-size:11px; letter-spacing:.1em;
@@ -68,22 +60,19 @@
     border:1px solid #ffffff10; padding:7px 12px; border-radius:20px;
   }
 
-  /* ---- score ---- */
   .score{max-width:620px; margin:0 auto 46px; padding:0 6px}
   .score h2{font-family:"Courier Prime",monospace; font-size:12px; letter-spacing:.24em;
     text-transform:uppercase; color:var(--yellow); text-align:center; font-weight:700; margin:0 0 18px}
   .row{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px}
-  .pct{font-size:clamp(36px,9vw,56px); font-weight:700; line-height:1; letter-spacing:-.03em}
+  .pct{font-size:clamp(36px,9vw,56px); font-weight:700; line-height:1; letter-spacing:-.03em; font-variant-numeric:tabular-nums}
   .l{color:var(--sand)} .r{color:var(--steel)}
   .nm{display:block; font-family:"Courier Prime",monospace; font-size:11px; letter-spacing:.18em;
       text-transform:uppercase; font-weight:700; opacity:.75; margin-top:6px}
-  .bar{height:26px; border-radius:3px; overflow:hidden; display:flex; border:2px solid #14120F;
-       box-shadow:inset 0 2px 10px #0009}
+  .bar{height:26px; border-radius:3px; overflow:hidden; display:flex; border:2px solid #14120F; box-shadow:inset 0 2px 10px #0009}
   .bar i{display:block; height:100%}
   .bar .a{width:80%; background:linear-gradient(180deg,var(--sand),#a2946c)}
   .bar .b{width:20%; background:var(--steel)}
 
-  /* ---- prose ---- */
   .notes{max-width:720px; margin:0 auto; color:var(--ink); line-height:1.75; font-size:16px}
   .notes h3{
     color:var(--white); font-size:13px; font-family:"Courier Prime",monospace;
@@ -93,42 +82,39 @@
   .notes p{margin:0 0 14px}
   .notes strong{color:var(--white); font-weight:600}
 
-  /* ---- pipeline diagram ---- */
+  blockquote{
+    margin:18px 0; padding:18px 20px; background:var(--panel);
+    border-left:3px solid var(--red); font-size:17px; line-height:1.6; color:var(--white);
+  }
+  blockquote cite{
+    display:block; margin-top:10px; font-style:normal; font-family:"Courier Prime",monospace;
+    font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink);
+  }
+
   .flow{display:grid; gap:10px; margin:22px 0 8px}
   .step{
     display:grid; grid-template-columns:44px 1fr; gap:16px; align-items:start;
     background:var(--panel); border:1px solid #ffffff10; border-left:3px solid var(--tone,var(--teal));
     border-radius:10px; padding:16px 18px;
   }
-  .step .n{
-    width:32px; height:32px; border-radius:50%; display:grid; place-items:center;
-    background:var(--tone,var(--teal)); color:#14120F; font-weight:700; font-size:14px;
-  }
+  .step .n{width:32px; height:32px; border-radius:50%; display:grid; place-items:center;
+    background:var(--tone,var(--teal)); color:#14120F; font-weight:700; font-size:14px}
   .step b{display:block; color:var(--white); font-size:15px; margin-bottom:4px}
   .step span{font-size:14px; line-height:1.6; display:block}
-  .step .did{
-    margin-top:9px; font-family:"Courier Prime",monospace; font-size:12px;
-    color:var(--yellow); letter-spacing:.04em;
-  }
+  .step .did{margin-top:9px; font-family:"Courier Prime",monospace; font-size:12px; color:var(--yellow); letter-spacing:.04em}
   .arrow{text-align:center; color:#4a423a; font-size:18px; line-height:1; margin:-4px 0}
 
-  /* ---- fix table ---- */
   .tblwrap{overflow-x:auto; margin:18px 0 6px}
-  table{border-collapse:collapse; width:100%; font-size:14px; min-width:540px}
+  table{border-collapse:collapse; width:100%; font-size:14px; min-width:520px}
   th,td{text-align:left; padding:11px 12px; border-bottom:1px solid #ffffff12; vertical-align:top}
-  th{
-    font-family:"Courier Prime",monospace; font-size:11px; letter-spacing:.14em;
-    text-transform:uppercase; color:var(--yellow); font-weight:700;
-  }
+  th{font-family:"Courier Prime",monospace; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--yellow); font-weight:700}
   td.was{color:#c98b84} td.now{color:var(--white)}
-  .tag{
-    font-family:"Courier Prime",monospace; font-size:10px; letter-spacing:.08em;
-    padding:3px 7px; border-radius:4px; white-space:nowrap;
-  }
+  .tag{font-family:"Courier Prime",monospace; font-size:10px; letter-spacing:.08em; padding:3px 7px; border-radius:4px; white-space:nowrap}
   .tag.wrong{background:#4a1a18; color:#f0a29a}
   .tag.mis{background:#4a3a18; color:var(--yellow)}
+  .tag.none{background:#3a2018; color:#e08c82}
 
-  /* ---- cards ---- */
   .split{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:20px 0 6px}
   .card{background:var(--panel); border:1px solid #ffffff10; border-radius:10px; padding:16px}
   .card b{display:block; font-family:"Courier Prime",monospace; font-size:11px; letter-spacing:.16em;
@@ -136,13 +122,9 @@
   .card span{font-size:14px; color:var(--ink); line-height:1.6}
 
   ul.list{margin:8px 0 6px; padding-left:0; list-style:none}
-  ul.list li{
-    position:relative; padding-left:26px; margin-bottom:12px; font-size:15px; line-height:1.65;
-  }
-  ul.list li::before{
-    content:""; position:absolute; left:6px; top:9px; width:8px; height:8px;
-    border-radius:2px; background:var(--red); transform:rotate(12deg);
-  }
+  ul.list li{position:relative; padding-left:26px; margin-bottom:12px; font-size:15px; line-height:1.65}
+  ul.list li::before{content:""; position:absolute; left:6px; top:9px; width:8px; height:8px;
+    border-radius:2px; background:var(--red); transform:rotate(12deg)}
   ul.list.good li::before{background:var(--ok)}
   ul.list li b{color:var(--white)}
 
@@ -152,6 +134,7 @@
     .split{grid-template-columns:1fr}
     .step{grid-template-columns:1fr; gap:10px}
   }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important}}
 </style>
 </head>
 <body>
@@ -166,23 +149,24 @@
 
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false">Take 1</button>
-    <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="true">Take 2 <span class="badge">NEW</span></button>
+    <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false">Take 2</button>
+    <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="true">Take 3 <span class="badge">NEW</span></button>
   </div>
 
-  <!-- ================= TAKE 2 ================= -->
-  <section class="panel" id="p2" role="tabpanel" aria-labelledby="t2">
+  <!-- ======================= TAKE 3 ======================= -->
+  <section class="panel" id="p3" role="tabpanel" aria-labelledby="t3">
     <div class="stage">
-      <video controls playsinline preload="metadata" poster="poster2.jpg">
-        <source src="s1e01-take2.mp4" type="video/mp4">
+      <video controls playsinline preload="metadata" poster="poster3.jpg">
+        <source src="s1e01-take3.mp4" type="video/mp4">
         Your browser can't play this video.
       </video>
     </div>
     <div class="meta">
-      <span class="chip">71s</span>
-      <span class="chip">20 lines</span>
-      <span class="chip">Vox case-file style</span>
-      <span class="chip">ElevenLabs voice</span>
-      <span class="chip">4 agents</span>
+      <span class="chip">78s</span>
+      <span class="chip">23 lines</span>
+      <span class="chip">Explains itself now</span>
+      <span class="chip">5 agents</span>
+      <span class="chip">Viewer-tested</span>
     </div>
 
     <section class="score">
@@ -196,168 +180,208 @@
 
     <div class="notes">
 
-      <h3>What changed</h3>
-      <p>Take 1 was factually wrong in five places and spent its first 16 seconds explaining
-        itself before anything happened. Take 2 opens on a man being shot.</p>
+      <h3>We tested Take 2 on a stranger</h3>
+      <p>A new agent was given one job: watch this as an ordinary person scrolling Shorts at
+        11pm, who has never seen The Mentalist, doesn't know who Patrick Jane is, and has
+        never heard of Red John. It saw all twenty frames and answered a comprehension test.</p>
 
-      <div class="split">
-        <div class="card"><b>Take 1 opened with</b><span>“The Mentalist is one of the most
-          popular detective shows ever made.” Then three more lines of setup. The first
-          actual event arrives at 18.7 seconds.</span></div>
-        <div class="card"><b>Take 2 opens with</b><span>“A man is shot dead in front of
-          Patrick Jane.” The shocking words land at about 1.8 seconds, and the last line
-          returns to the same image so the video loops.</span></div>
-      </div>
+      <blockquote>
+        “The video is a beautifully made answer to a question it never asks.”
+        <cite>The test viewer, on Take 2</cite>
+      </blockquote>
 
-      <h3>The five factual errors</h3>
-      <p>A dedicated agent read the episode transcript and recaps, then checked every claim.
-        These were all in the published Take 1.</p>
+      <p>It said it would have swiped away at <strong>second five</strong>. Not because the
+        video looked bad — because by second five it had been given four proper nouns and no
+        reason to care about any of them.</p>
+
+      <h3>What it couldn't answer</h3>
+      <p>Ten comprehension questions. These are the ones it got wrong, in its own words.</p>
 
       <div class="tblwrap">
         <table>
-          <thead><tr><th>Take 1 said</th><th></th><th>Actually</th></tr></thead>
+          <thead><tr><th>Question</th><th></th><th>What they said</th></tr></thead>
           <tbody>
-            <tr>
-              <td class="was">“Then a couple, staged to look like Red John.”</td>
-              <td><span class="tag wrong">wrong</span></td>
-              <td class="now">Not a couple. A woman and her doctor — her husband was away in Fresno.</td>
-            </tr>
-            <tr>
-              <td class="was">“They prove the Red John signature is a fake.”</td>
-              <td><span class="tag mis">misleading</span></td>
-              <td class="now">Jane calls it at the scene. The detectives only confirm it afterwards.</td>
-            </tr>
-            <tr>
-              <td class="was">Key stolen, <em>then</em> the diary rumour planted.</td>
-              <td><span class="tag wrong">wrong</span></td>
-              <td class="now">Reversed. Rumour first, then the hug, then the keycard.</td>
-            </tr>
-            <tr>
-              <td class="was">“Jane writes it himself that night.”</td>
-              <td><span class="tag mis">wrong night</span></td>
-              <td class="now">He writes it the night the taunting note arrives — before the appointment.</td>
-            </tr>
-            <tr>
-              <td class="was">“The next morning the killer breaks in.”</td>
-              <td><span class="tag wrong">wrong</span></td>
-              <td class="now">Minutes later, the same night — and he doesn’t break in. It’s his own practice.</td>
-            </tr>
+            <tr><td class="was">What show is this?</td><td><span class="tag none">No idea</span></td>
+              <td class="now">“The video never says the name. I wondered if this was a true-crime case.”</td></tr>
+            <tr><td class="was">Who is Patrick Jane?</td><td><span class="tag none">No idea</span></td>
+              <td class="now">“He gets suspended, so he works for someone. I don't know why anyone lets him near a murder.”</td></tr>
+            <tr><td class="was">What do the percentages count?</td><td><span class="tag mis">Fuzzy</span></td>
+              <td class="now">“I assumed it was a poll — viewers voting. I worked it out at second 60.”</td></tr>
+            <tr><td class="was">Who is Red John?</td><td><span class="tag mis">Fuzzy</span></td>
+              <td class="now">“The picture showed a prison cell, so I thought he was already caught.”</td></tr>
+            <tr><td class="was">What is this a series of?</td><td><span class="tag none">No idea</span></td>
+              <td class="now">“Episode 1 of something. Of what, I could not tell you.”</td></tr>
+            <tr><td class="was">Were you meant to argue with 80/20?</td><td><span class="tag none">No idea</span></td>
+              <td class="now">“Nothing invited me to. I read it as a fact the video was reporting.”</td></tr>
           </tbody>
         </table>
       </div>
 
-      <h3>How it was made</h3>
-      <p>Four agents, run in sequence. Each one’s output became the next one’s input.</p>
+      <h3>The ending, and why it felt broken</h3>
+      <p>Take 2 ended by repeating its own first line, to loop back to the start. Asked how
+        that landed:</p>
 
-      <div class="flow">
-        <div class="step" style="--tone:#78d0d4">
-          <div class="n">1</div>
-          <div>
-            <b>The plot expert</b>
-            <span>Read the episode transcript, the wiki and contemporaneous recaps until it
-              could state exactly who did what, in what order. Built the ground truth first,
-              so nobody downstream was writing from memory.</span>
-            <span class="did">found 5 errors in the published script</span>
-          </div>
-        </div>
-        <div class="arrow">▼</div>
+      <blockquote>
+        “It reads as the narrator losing his place. A sentence <em>about</em> the video, not a
+        sentence <em>in</em> it. The video didn't end, it fell over.”
+        <cite>On the old final line</cite>
+      </blockquote>
 
-        <div class="step" style="--tone:#F2C230">
-          <div class="n">2</div>
-          <div>
-            <b>The script writer</b>
-            <span>Researched what actually holds attention on Shorts — hooks inside two
-              seconds, the “but / therefore” rule, endings that loop back into the opening.
-              Then rewrote the narration against the ground truth.</span>
-            <span class="did">cut 16s of setup · moved the hook to 1.8s · built the loop</span>
-          </div>
-        </div>
-        <div class="arrow">▼</div>
+      <p>So the loop is gone. Take 3 ends on the verdict as a challenge — <strong>“Eighty-twenty
+        to Jane. Wrong? Say so.”</strong> — and then names the thread that isn't finished:
+        <strong>“Red John is still out there. Episode two.”</strong> One is a provocation, the
+        other is a full stop that points forward instead of backward.</p>
 
-        <div class="step" style="--tone:#D62828">
-          <div class="n">3</div>
-          <div>
-            <b>The plot expert, again</b>
-            <span>The rewrite went back to the fact-checker for a second pass. Compression is
-              where errors hide — squeezing two facts into one sentence is how “his partner’s
-              office” quietly becomes “his office”.</span>
-            <span class="did">6 more corrections · caught the motive being laundered</span>
-          </div>
-        </div>
-        <div class="arrow">▼</div>
-
-        <div class="step" style="--tone:#cabd93">
-          <div class="n">4</div>
-          <div>
-            <b>The director</b>
-            <span>Looked at all 17 existing images and mapped them onto the new running order —
-              they were made for the old script, so line N was almost never image N. Then placed
-              every annotation: which frame gets the red circle, which gets the stamp.</span>
-            <span class="did">20-shot map · 9 annotations · flagged 2 renderer bugs</span>
-          </div>
-        </div>
-      </div>
-
-      <h3>The look</h3>
-      <p>A separate research pass on the Vox / Johnny Harris style. The finding that mattered:
-        <strong>the style is deliberate imperfection</strong>. Nothing sits square, edges are
-        torn rather than cut, and the graphics are held on a 12&nbsp;fps grid while the camera
-        moves at 24 — a smooth push under a stuttering overlay.</p>
-
-      <p>The important part: <strong>no new images were generated.</strong> The newspaper-clipping
-        look is a compositing problem, not a generation problem. The same 17 stills are
-        re-staged as physical photographs on an investigation board — torn cream edges,
-        85-line newsprint halftone, cellophane tape, a pushpin, scrap paper behind.</p>
-
+      <h3>What changed</h3>
       <div class="split">
-        <div class="card"><b>Built in the renderer</b><span>Torn deckle edges, halftone dots,
-          tape and pins, hand-drawn chinagraph circles that overshoot their own closure,
-          highlighter swipes, under-inked rubber stamps, per-shot camera moves.</span></div>
-        <div class="card"><b>Cost</b><span>Images: nothing — all compositing. Voice: about
-          6 credits for 20 lines through ElevenLabs. The whole rebuild ran on the free tier.</span></div>
+        <div class="card"><b>Take 2 opened with</b><span>“A man is shot dead in front of Patrick
+          Jane.” A strong hook — attached to nothing. The viewer didn't know who Jane was, what
+          show this was, or what the numbers meant.</span></div>
+        <div class="card"><b>Take 3 opens with</b><span>“Rewatching The Mentalist. A fake psychic
+          consults for the police. Jane, or his detectives? I'm scoring every episode.
+          Episode one.” The show, the man, his job, the game and the format — in eight
+          seconds.</span></div>
       </div>
 
-      <h3>Known problems</h3>
-      <ul class="list">
-        <li><b>The cold open has no purpose-built image.</b> The first three lines are the
-          entire hook — a shooting, an accusation, a wife with a gun — and all three are
-          played by stills made for other beats. This is the biggest single weakness.</li>
-        <li><b>Nothing in the image set shows a woman.</b> Both women in this script — the one
-          who fires the gun and the one killed as cover — are invisible.</li>
-        <li><b>No image shows violence.</b> The set is all aftermath. A video built on two
-          murders never shows a shot fired.</li>
-        <li><b>One line runs against the episode’s chronology.</b> The diner scene actually
-          happens before the lab result. It’s narrated as a parallel track rather than a
-          sequence, which is true but asks something of the viewer.</li>
-        <li><b>The verdict line is the contestable one.</b> The detectives’ 20% includes real
-          work — the interrogation that produced the affair, and the arrest itself, which Jane
-          could not have made. The claim is that their <em>key</em> evidence was planted, not
-          all of it.</li>
+      <ul class="list good">
+        <li><b>Red John is now explained before he's used.</b> Take 2 said “staged as Red John”
+          and explained him a line later. He now gets introduced first, including the fact that
+          he signs scenes with a red smiley — which is what turns “wrong wall” from a vibe into
+          a deduction.</li>
+        <li><b>The scoreboard starts level.</b> It used to open at 62/38 before a single event
+          had happened, which is exactly why it read as a poll. It now starts 50/50 and carries
+          a label: <em>share of the solve</em>.</li>
+        <li><b>The argument moved 20 seconds earlier.</b> “The killer planted it” — the point of
+          the whole video — used to arrive at second 63. It's now its own line at second 43.</li>
+        <li><b>The killer now gets caught on screen.</b> Take 2 went from motive straight to the
+          aftermath. The arrest was missing entirely.</li>
+        <li><b>The prison-cell image is gone from the video.</b> It made the viewer believe Red
+          John had been caught — the opposite of the truth, and the engine of the whole series.</li>
+        <li><b>No still is reused on back-to-back lines</b>, and three reuses that read as
+          “the video glitched” were eliminated by re-casting other frames.</li>
       </ul>
 
-      <h3>What I'd do next</h3>
-      <ul class="list good">
-        <li><b>Three bespoke images, three credits.</b> The shooting, the wife fetching the gun,
-          and a gloved hand laying the planted hair. The prompts are already written.</li>
-        <li><b>Sound design on the cuts.</b> Every hard cut should land on an audio hit. Right
-          now the cut carries a small camera shake and nothing else.</li>
-        <li><b>Test the hook.</b> Two versions of the first line, everything else identical.</li>
+      <h3>How it was made</h3>
+      <p>Five agents now. The viewer test is the one that changed the most.</p>
+
+      <div class="flow">
+        <div class="step" style="--tone:#78d0d4"><div class="n">1</div><div>
+          <b>The plot expert</b>
+          <span>Read the transcript and recaps until it could state exactly who did what, in
+            what order. Ground truth first, so nobody downstream writes from memory.</span>
+          <span class="did">found 5 factual errors in the published Take 1</span>
+        </div></div>
+        <div class="arrow">▼</div>
+        <div class="step" style="--tone:#F2C230"><div class="n">2</div><div>
+          <b>The script writer</b>
+          <span>Researched what holds attention on Shorts, then wrote against the ground
+            truth rather than from memory.</span>
+          <span class="did">moved the hook to 1.4s · built the intro in 8s flat</span>
+        </div></div>
+        <div class="arrow">▼</div>
+        <div class="step" style="--tone:#D62828"><div class="n">3</div><div>
+          <b>The plot expert, again</b>
+          <span>Second pass on the rewrite. Compression is where errors hide.</span>
+          <span class="did">caught the motive being laundered in the killer's favour</span>
+        </div></div>
+        <div class="arrow">▼</div>
+        <div class="step" style="--tone:#cabd93"><div class="n">4</div><div>
+          <b>The director</b>
+          <span>Looked at every still and mapped them onto the running order, then placed
+            every circle, stamp and highlight.</span>
+          <span class="did">23-shot map · 15 annotations · audited every stray smiley</span>
+        </div></div>
+        <div class="arrow">▼</div>
+        <div class="step" style="--tone:#6fbf8a"><div class="n">5</div><div>
+          <b>The stranger</b>
+          <span>Watched it cold with no context and answered a comprehension test, then sent
+            ranked feedback back to the writer and the director — who both revised.</span>
+          <span class="did">“I'd have swiped at second five” · 23 specific fixes</span>
+        </div></div>
+      </div>
+
+      <h3>Still wrong</h3>
+      <ul class="list">
+        <li><b>Five images are still missing.</b> The shooting, the wife with the gun, the
+          planted hair, the wrong wall and the motive all still play on stills made for other
+          beats. The prompts are written; the render swaps to them automatically once they
+          exist.</li>
+        <li><b>The ransack has no image at all.</b> “The killer is tearing his partner's office
+          apart” plays over a room where nothing is disturbed.</li>
+        <li><b>One stray smiley survives at the verdict.</b> The killer's signature appears on a
+          background shelf in a frame where he was never present. The stills are 9:16 going into
+          a square window, so the crop can only move vertically — this one needs a new image,
+          not a new setting.</li>
+        <li><b>The intro costs eight seconds.</b> That's the trade: the video now explains
+          itself, but the shooting has moved from second 0 to second 8. Whether that's the right
+          call is the thing to watch in the retention graph.</li>
       </ul>
 
       <h3>How the split is scored</h3>
-      <p>Three weighted components, applied the same way to every episode:
+      <p>Three weighted components, the same for every episode:
         <strong>identification</strong> (50%) — who worked out who did it;
-        <strong>evidence and legwork</strong> (30%) — forensics, records, canvassing, surveillance;
+        <strong>evidence and legwork</strong> (30%) — forensics, records, canvassing;
         <strong>resolution</strong> (20%) — who produced the confession or the arrest.</p>
-
       <p>The forensic evidence was real, and it was aimed at innocent men — because the killer
-        planted it. Jane identified him, manufactured the evidence and sprang the trap. The CBI
-        contribution was the file review, the interrogation and the arrest — necessary, but not
-        what broke the case.</p>
+        planted it. But the detectives confirmed the copycat staging from archive footage, an
+        interrogation produced the affair, and one of them made the arrest Jane physically
+        could not. That's the twenty, and it's arguable. That's the point.</p>
     </div>
   </section>
 
-  <!-- ================= TAKE 1 ================= -->
+  <!-- ======================= TAKE 2 ======================= -->
+  <section class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+    <div class="stage">
+      <video controls playsinline preload="metadata" poster="poster2.jpg">
+        <source src="s1e01-take2.mp4" type="video/mp4">
+        Your browser can't play this video.
+      </video>
+    </div>
+    <div class="meta">
+      <span class="chip">71s</span>
+      <span class="chip">20 lines</span>
+      <span class="chip">Vox case-file style</span>
+      <span class="chip">ElevenLabs voice</span>
+    </div>
+
+    <div class="notes">
+      <h3>The second attempt</h3>
+      <p>This is where the visuals changed. The same seventeen stills were re-staged as
+        physical photographs on a case-file board — torn cream edges, newsprint halftone,
+        cellophane tape, a pushpin — rather than regenerated. The newspaper-clipping look is a
+        compositing problem, not a generation problem.</p>
+
+      <h3>The five factual errors it fixed</h3>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>Take 1 said</th><th></th><th>Actually</th></tr></thead>
+          <tbody>
+            <tr><td class="was">“Then a couple, staged to look like Red John.”</td>
+              <td><span class="tag wrong">wrong</span></td>
+              <td class="now">Not a couple. A woman and her doctor — her husband was away in Fresno.</td></tr>
+            <tr><td class="was">“They prove the Red John signature is a fake.”</td>
+              <td><span class="tag mis">misleading</span></td>
+              <td class="now">Jane calls it at the scene. The detectives only confirm it afterwards.</td></tr>
+            <tr><td class="was">Key stolen, <em>then</em> the diary rumour planted.</td>
+              <td><span class="tag wrong">wrong</span></td>
+              <td class="now">Reversed. Rumour first, then the hug, then the keycard.</td></tr>
+            <tr><td class="was">“Jane writes it himself that night.”</td>
+              <td><span class="tag mis">wrong night</span></td>
+              <td class="now">He writes it the night the taunting note arrives — before the appointment.</td></tr>
+            <tr><td class="was">“The next morning the killer breaks in.”</td>
+              <td><span class="tag wrong">wrong</span></td>
+              <td class="now">Minutes later, the same night — and it's his own practice.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Why it still failed</h3>
+      <p>It was accurate, well shot, and incomprehensible to anyone who hadn't seen the show.
+        Every problem in the Take 3 notes above was found in this version.</p>
+    </div>
+  </section>
+
+  <!-- ======================= TAKE 1 ======================= -->
   <section class="panel" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
     <div class="stage">
       <video controls playsinline preload="metadata" poster="poster.jpg">
@@ -372,29 +396,10 @@
       <span class="chip">5 factual errors</span>
     </div>
 
-    <section class="score">
-      <h2>The verdict — episode 1</h2>
-      <div class="row">
-        <div class="pct l">80%<span class="nm">Patrick Jane</span></div>
-        <div class="pct r" style="text-align:right">20%<span class="nm">The detectives</span></div>
-      </div>
-      <div class="bar"><i class="a"></i><i class="b"></i></div>
-    </section>
-
     <div class="notes">
       <h3>The first attempt</h3>
-      <p>Kept here for comparison. The scoring is the same; the script and the visuals are not.
-        This version opens with four lines of setup, uses an offline Piper voice, and contains
-        the five factual errors listed under Take 2.</p>
-
-      <div class="split">
-        <div class="card"><b>The detectives</b><span>Reviewed the Red John files and proved the
-          signature was faked. Lifted blood and a hair off the taunting note, which exposed an
-          affair and produced a motive — pointing squarely at the wrong man.</span></div>
-        <div class="card"><b>Patrick Jane</b><span>Asked a grieving father point blank if he killed
-          his daughter. Lifted a therapist's office key during a hug. Planted a rumour about a
-          diary that did not exist, then wrote it himself that night.</span></div>
-      </div>
+      <p>Kept for comparison. Opens with four lines of setup before anything happens, uses an
+        offline Piper voice, and contains the five factual errors listed under Take 2.</p>
     </div>
   </section>
 
@@ -413,7 +418,6 @@
       t.setAttribute('aria-selected', String(on));
       document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
     });
-    // never leave a hidden video playing
     document.querySelectorAll('video').forEach(v => {
       if (v.closest('.panel').hidden) v.pause();
     });
