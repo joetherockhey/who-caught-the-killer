@@ -623,10 +623,57 @@
       <button class="tab" role="tab" id="f1" aria-controls="q1" aria-selected="false">Take 1</button>
       <button class="tab" role="tab" id="f2" aria-controls="q2" aria-selected="false">Take 2</button>
       <button class="tab" role="tab" id="f3" aria-controls="q3" aria-selected="false">Take 3</button>
-      <button class="tab" role="tab" id="f4" aria-controls="q4" aria-selected="true">Take 4 <span class="badge">NEW</span></button>
+      <button class="tab" role="tab" id="f4" aria-controls="q4" aria-selected="false">Take 4</button>
+      <button class="tab" role="tab" id="f5" aria-controls="q5" aria-selected="true">Take 5 <span class="badge">NEW</span></button>
     </div>
 
-    <section class="panel" id="q4" role="tabpanel" aria-labelledby="f4">
+    <section class="panel" id="q5" role="tabpanel" aria-labelledby="f5">
+      <div class="stage">
+        <video controls playsinline preload="metadata" poster="s1e02-poster.jpg">
+          <source src="s1e02-take5.mp4" type="video/mp4">
+          Your browser can't play this video.
+        </video>
+      </div>
+      <div class="meta">
+        <span class="chip">1m 53s</span>
+        <span class="chip">26 lines</span>
+        <span class="chip">17 callouts</span>
+        <span class="chip">typed labels</span>
+        <span class="chip">one name per shot</span>
+      </div>
+
+      <section class="score">
+        <div class="pcts">
+          <div class="pct l">55%<span class="nm">Patrick Jane</span></div>
+          <div class="pct r" style="text-align:right">45%<span class="nm">The detectives</span></div>
+        </div>
+        <div class="bar"><i class="a" style="flex:55"></i><i class="b" style="flex:45"></i></div>
+      </section>
+
+      <div class="notes">
+        <h3>Slower, and typed</h3>
+        <p>The callout window went from 0.6s to 2.2s, which is the difference between
+          three things flashing on together and three things happening in order. The
+          ring now takes most of a second to close. The arrow eases out after it on an
+          in-out curve rather than the old one, which arrived almost instantly and then
+          crawled &mdash; the wrong shape entirely for something that should read as
+          <i>extending toward</i>. Then the name types itself, one character at a time,
+          with a cursor showing while there is still text to come. Linear, because a
+          typewriter does not accelerate.</p>
+        <h3>One name per shot</h3>
+        <p>Jane is ringed on the line that is about him. The detectives wait for the
+          next shot &mdash; the three of them walking away from camera &mdash; and get
+          the ring there. Two rings and two names on one picture is a diagram; one at a
+          time is a commentary. The same thinking removed the second tag from the
+          corridor shot, where Jane was being re-named for no new information.</p>
+        <h3>And the show gets named on screen</h3>
+        <p>The opening frame is a dead television with a blank warm glow. The title now
+          types itself onto the tube in dark burned-in type with a faint halo &mdash;
+          light-on-light would have vanished on a screen that bright.</p>
+      </div>
+    </section>
+
+    <section class="panel" id="q4" role="tabpanel" aria-labelledby="f4" hidden>
       <div class="stage">
         <video controls playsinline preload="metadata" poster="s1e02-poster.jpg">
           <source src="s1e02-take4.mp4" type="video/mp4">
@@ -650,6 +697,9 @@
       </section>
 
       <div class="notes">
+        <h3>Callouts, but too fast and too crowded</h3>
+        <p>First pass at the annotations. Superseded by take 5, which slows them down,
+          types the names out, and stops putting two on one frame.</p>
         <h3>Everyone gets named on screen</h3>
         <p>Eighteen callouts across fourteen lines. A ring draws itself round the
           person, an arrow runs out to it, and the name lands &mdash; in that order,
