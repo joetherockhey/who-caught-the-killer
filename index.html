@@ -622,10 +622,55 @@
     <div class="tabs" role="tablist">
       <button class="tab" role="tab" id="f1" aria-controls="q1" aria-selected="false">Take 1</button>
       <button class="tab" role="tab" id="f2" aria-controls="q2" aria-selected="false">Take 2</button>
-      <button class="tab" role="tab" id="f3" aria-controls="q3" aria-selected="true">Take 3 <span class="badge">NEW</span></button>
+      <button class="tab" role="tab" id="f3" aria-controls="q3" aria-selected="false">Take 3</button>
+      <button class="tab" role="tab" id="f4" aria-controls="q4" aria-selected="true">Take 4 <span class="badge">NEW</span></button>
     </div>
 
-    <section class="panel" id="q3" role="tabpanel" aria-labelledby="f3">
+    <section class="panel" id="q4" role="tabpanel" aria-labelledby="f4">
+      <div class="stage">
+        <video controls playsinline preload="metadata" poster="s1e02-poster.jpg">
+          <source src="s1e02-take4.mp4" type="video/mp4">
+          Your browser can't play this video.
+        </video>
+      </div>
+      <div class="meta">
+        <span class="chip">1m 53s</span>
+        <span class="chip">26 lines</span>
+        <span class="chip">18 callouts</span>
+        <span class="chip">Kokoro voice</span>
+        <span class="chip">Nothing shakes</span>
+      </div>
+
+      <section class="score">
+        <div class="pcts">
+          <div class="pct l">55%<span class="nm">Patrick Jane</span></div>
+          <div class="pct r" style="text-align:right">45%<span class="nm">The detectives</span></div>
+        </div>
+        <div class="bar"><i class="a" style="flex:55"></i><i class="b" style="flex:45"></i></div>
+      </section>
+
+      <div class="notes">
+        <h3>Everyone gets named on screen</h3>
+        <p>Eighteen callouts across fourteen lines. A ring draws itself round the
+          person, an arrow runs out to it, and the name lands &mdash; in that order,
+          because a circle and a label arriving together read as a graphic pasted on,
+          while a circle that draws and <i>then</i> gets pointed at reads as someone
+          marking up a photograph.</p>
+        <p>The two men the investigation wrongly chases are labelled <b>suspect one</b>
+          and <b>suspect two</b>, so you can keep count of how many innocent people
+          Jane&rsquo;s tricks turn up. The word <b>killers</b> is held back until they
+          walk through the motel door at line 23, which is where the episode reveals
+          them. The turn gets one wide ring round the whole kitchen labelled
+          <b>one of these</b> &mdash; deliberately not around any individual, because
+          the entire point of that picture is that it could be any of them.</p>
+        <h3>This is the motion the film wanted</h3>
+        <p>It is the opposite of the weave that had to come out. An annotation is
+          directional, it happens once, it lands, and it is saying something. A weave is
+          random, continuous, and says nothing.</p>
+      </div>
+    </section>
+
+    <section class="panel" id="q3" role="tabpanel" aria-labelledby="f3" hidden>
       <div class="stage">
         <video controls playsinline preload="metadata" poster="s1e02-poster.jpg">
           <source src="s1e02-take3.mp4" type="video/mp4">
@@ -649,6 +694,9 @@
       </section>
 
       <div class="notes">
+        <h3>Still, but nothing is pointed at</h3>
+        <p>The cut that fixed the shaking. Superseded by take 4, which adds the
+          callouts.</p>
         <h3>The picture finally holds still</h3>
         <p>Take 2 calmed the cuts and it was still shaky, because the cuts were never
           the problem. <code>useGateWeave</code> re-randomised the whole frame&rsquo;s x,
